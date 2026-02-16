@@ -11,11 +11,20 @@ const result = document.querySelector("#result")
 
 if (height == "" || height < 0 || isNaN(height)) {
     heightError.innerHTML = `Please enter a valid height : ${height}`   
+}else{
+    heightError.innerHTML = ""
 }
 
 if (weight == "" || weight < 0 || isNaN(weight)) {
     weightError.textContent = `Please enter a valid weight : ${weight}`
+}else{
+    weightError.textContent = ""
 }
+
+if (height <= 0 || isNaN(height) || weight <= 0 || isNaN(weight)) {
+    result.textContent = "";
+    return;
+  }
 
 const bmi = (weight / ((height * height) /10000)).toFixed(2)
 
